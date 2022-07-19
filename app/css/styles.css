@@ -132,7 +132,7 @@ body {
 }
 
 .modal {
-  display: none; 
+  display: block; 
   position: fixed; 
   z-index: 1; 
   left: 0;
@@ -154,6 +154,10 @@ body {
   width: 20%; 
   text-align: center;
   color: var(--text);
+}
+
+.modal-content h1 {
+  font-size: 2em
 }
 
 .close {
@@ -183,6 +187,43 @@ body {
   touch-action: manipulation;
 }
 
+@media (max-width: 925px) {
+  .modal-content {
+    width: 40%; 
+  }
+  
+}
+
+
+@media (max-width: 850px) {
+  .modal-content {
+    width: 40%; 
+  }
+  
+}
+
+@media (max-height: 800px) {
+  .modal-content {
+    width: 25%; 
+  }
+}
+
+@media (max-height: 725px) {
+  .keyboard {
+    margin-top: 4vh;
+  }
+  .modal-content {
+    width: 30%; 
+  }
+}
+
+@media (max-width: 550px) {
+  .modal-content {
+    width: 50%; 
+  }
+  
+}
+
 @media (max-width: 500px) {
   .key {
     padding: 2.2vh 1.7vh;
@@ -190,12 +231,15 @@ body {
   .keyboard {
     margin-top: 8vh;
   }
+  .modal-content {
+    width: 60%; 
+  }
   
 }
 
 @media (max-width: 420px) {
   .key {
-    padding: 2vh 1.5vh;
+    padding: 2vh 1.4vh;
   }
   .keyboard {
     margin-top: 7vh;
@@ -212,11 +256,8 @@ body {
   }
 }
 
-@media (max-height: 725px) {
-  .keyboard {
-    margin-top: 4vh;
-  }
-}
+
+
 
 @media (max-width: 350px) {
   .key {
@@ -244,10 +285,14 @@ body {
   .header .text {
     font-size: 20px;
   }
-}
-
-@media (max-width: 470px) {
-  .header .text {
-    font-size: 30px;
+  .modal-content {
+    width: 70%; 
+  }
+  .modal-content h1 {
+    font-size: 1.2em; 
+  }
+  .modal-content p {
+    font-size: .75em;
   }
 }
+
