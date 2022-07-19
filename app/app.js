@@ -120,9 +120,6 @@ function backspace() {
 }
 
 
-
-
-
 for (let i = 0; i < numSquares; i++) {
     const square = document.createElement('div');
     const text = document.createElement('div')
@@ -191,7 +188,6 @@ document.addEventListener('keydown', (event) => {
     }
     else if (letters.indexOf(event.key.toUpperCase()) in letters ) {
         const square = squares[currentBox];
-
 
         const text = square.querySelector('.square-text');
                  
