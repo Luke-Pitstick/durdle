@@ -192,10 +192,19 @@ body {
   
 }
 
-
-@media (max-width: 430px) {
+@media (max-width: 420px) {
   .key {
-    padding: 2vh 1.2vh;
+    padding: 2vh 1.5vh;
+  }
+  .keyboard {
+    margin-top: 7vh;
+  }
+}
+
+
+@media (max-width: 395px) {
+  .key {
+    padding: 2vh 1.3vh;
   }
   .keyboard {
     margin-top: 7vh;
@@ -207,6 +216,16 @@ body {
     margin-top: 4vh;
   }
 }
+
+@media (max-width: 350px) {
+  .key {
+    padding: 1.5vh 1vh;
+  }
+  .keyboard {
+    margin-top: 7vh;
+  }
+}
+
 
 @media (max-width: 300px) {
   .key {
