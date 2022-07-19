@@ -5755,7 +5755,10 @@ const words = [
   "roble",
   "rumba",
   "biffy",
-  "pupal"
+  "pupal",
+  "glent",
+  "vozhd",
+  "waqfs"
 ];
 
 
