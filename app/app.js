@@ -49,6 +49,8 @@ function enter() {
         else {
             for (let i = 0; i < word.length; i++) {
                 const key = keyboard.querySelector(`#${letters[i].textContent}`)
+
+                console.log(key.style.backgroundColor)
                 if (word[i] === winningWord[i]) {
                     letters[i].classList.add('flip');
                     letters[i].style.backgroundColor = "#538d4e";
@@ -59,13 +61,18 @@ function enter() {
                     letters[i].classList.add('flip');
                     letters[i].style.backgroundColor = "#b59f3b";
                     letters[i].style.borderColor = "#b59f3b";
-                    key.style.backgroundColor = "#b59f3b";
+                    if (key.style.backgroundColor != "rgb(83, 141, 78)"){
+                        key.style.backgroundColor = "#b59f3b";
+                    }
+                    
                 }
                 else {
                     letters[i].classList.add('flip');
                     letters[i].style.backgroundColor = "#3a3a3c";
                     letters[i].style.borderColor = "#3a3a3c";
-                    key.style.backgroundColor = "#3a3a3c";
+                    if (key.style.backgroundColor != "rgb(83, 141, 78)"){
+                        key.style.backgroundColor = "#3a3a3c";
+                    }
                 }
             }
         }
@@ -179,7 +186,6 @@ for (let i = 0; i < keys.length; i++) {
 
     })
 }
-
 
 document.addEventListener('keydown', (event) => {
     if (event.key == 'Backspace') {
