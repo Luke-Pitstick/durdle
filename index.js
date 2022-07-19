@@ -8,7 +8,7 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server);
 
-const PORT = 3000;
+const PORT = 80;
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
