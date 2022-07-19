@@ -49,8 +49,6 @@ function enter() {
         else {
             for (let i = 0; i < word.length; i++) {
                 const key = keyboard.querySelector(`#${letters[i].textContent}`)
-
-                console.log(key.style.backgroundColor)
                 if (word[i] === winningWord[i]) {
                     letters[i].classList.add('flip');
                     letters[i].style.backgroundColor = "#538d4e";
