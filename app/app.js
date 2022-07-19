@@ -1,8 +1,12 @@
 const socket = io();
-
-
 const view = document.querySelector('#view');
 const keyboard = document.querySelector('#keyboard')
+const modal = document.querySelector('#modal')
+const modalContent = document.querySelector('#modal-content') 
+const close = document.querySelector('#close')
+const headerReset = document.querySelector('#header-reset')
+
+
 
 const keys = [['Q','W','E','R','T','Y','U','I','O','P'], ['A','S','D','F','G','H','J','K','L'], ['ENTER','Z','X','C','V','B','N','M','<-']];
 const layers = ['#first', '#second', "#third"]
@@ -15,6 +19,7 @@ let five = 0;
 let winningWord;
 let currentLayer = 1;
 
+
 function range(start, end) {
     const ans = [];
     for (let i = start; i <= end; i++) {
@@ -23,7 +28,66 @@ function range(start, end) {
     return ans;
 }
 
+function resetGame() {
+    five = 0;
+    currentBox = 0;
+    currentLayer = 1;
+    
+    socket.emit('newWord', (data) => {
+        winningWord = data.word;
+    })
 
+    squares.forEach(square => {
+        const text = square.firstElementChild;
+
+        text.textContent = ''
+        square.style.backgroundColor = "#121213"
+        square.style.borderColor = "#3a3a3c"
+    })
+    modal.style.display = 'none'
+    
+    
+
+    if (modalContent.children.length != 1) {
+        for (let i = 0; i < 3; i++){
+            modalContent.removeChild(modalContent.lastElementChild)
+        }
+    }
+
+    const keyLayers = keyboard.children;
+
+    for (let x = 0; x < keyLayers.length; x++) {
+        const keys = keyLayers[x].children
+
+        for (let i = 0; i < keys.length; i++) {
+            keys[i].style.backgroundColor = '#818384'
+        }
+    }
+
+     
+}
+
+function modalEnd(state) {
+    const header = document.createElement('h1');
+    const sub = document.createElement('p');
+    const resetButton = document.createElement('button')
+
+    header.textContent = state;
+    sub.textContent = `The word was ${winningWord}`;
+
+    resetButton.setAttribute('type', 'button')
+    resetButton.classList.add('reset')
+    resetButton.textContent = 'Reset'
+    resetButton.id = 'reset'
+
+    resetButton.addEventListener('click', resetGame)
+
+            
+    modalContent.appendChild(header);
+    modalContent.appendChild(sub);
+    modalContent.appendChild(resetButton)
+    modal.style.display = "block";
+}
 
 function enter() {
     if (five === 5) {
@@ -39,12 +103,13 @@ function enter() {
         const winningWordLetters = winningWord.split('')
     
         if (word == winningWord) {
-            console.log("Won")
 
             letters.forEach(letter => {
-                letter.style.backgroundColor = "#538d4e"
-                letter.style.borderColor = "#538d4e"
+                letter.style.backgroundColor = "#538d4e";
+                letter.style.borderColor = "#538d4e";
             })
+            
+            modalEnd('You Won')
         }
         else {
             for (let i = 0; i < word.length; i++) {
@@ -77,8 +142,8 @@ function enter() {
         currentLayer += 1;
         five = 0;
 
-        if (currentLayer === 6) {
-            console.log("You Lost", winningWord)
+        if (currentLayer === 7) {
+            modalEnd('You Lost')
         }
     }
 }
@@ -201,6 +266,19 @@ document.addEventListener('keydown', (event) => {
         }
     }
 })
+
+
+close.addEventListener('click', () => {
+    modal.style.display = "none"
+})
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+}
+
+headerReset.addEventListener('click', resetGame)
 
 
 socket.on('word', (data) => {

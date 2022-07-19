@@ -19,6 +19,7 @@
             </div>
             <h1 class="text">Durdle</h1>
             <div class="right">
+                <button type="button" id="header-reset"><i class="gg-redo"></i></button>
                 <button type="button"><i class="gg-insights"></i></button>
                 <button type="button"><i class="gg-more"></i></button>
             </div>
@@ -33,7 +34,11 @@
                 <div id="third"></div>
             </div>
         </div>
-        
+        <div class="modal" id="modal">
+            <div class="modal-content" id="modal-content">
+                <span class="close" id="close">&times;</span>
+              </div>
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.min.js"></script>
     <script src="\app.js"></script>

@@ -17,6 +17,11 @@ function getRndInteger(min, max) {
 io.on("connection", (socket) => {
   const word = words[getRndInteger(1, 5760)]
   socket.emit("word", {word: word})
+
+  socket.on('newWord', () => {
+    const word = words[getRndInteger(1, 5760)]
+    socket.emit("word", {word: word})
+  })
 });
 
 
