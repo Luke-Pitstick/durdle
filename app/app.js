@@ -108,12 +108,9 @@ function backspace() {
     const square = squares[currentBox]
     const text = square.querySelector('.square-text')
 
-    console.log(ids)
     let id = parseInt(square.id)
 
     const index = ids.indexOf(id)
-
-    console.log(id, index)
 
     if (index in ids) {
         square.classList.remove('typed');
