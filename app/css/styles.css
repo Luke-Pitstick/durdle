@@ -181,3 +181,52 @@ body {
   user-select: none;
 }
 
+@media (max-width: 500px) {
+  .key {
+    padding: 2.2vh 1.7vh;
+  }
+  .keyboard {
+    margin-top: 8vh;
+  }
+  
+}
+
+
+@media (max-width: 430px) {
+  .key {
+    padding: 2vh 1.2vh;
+  }
+  .keyboard {
+    margin-top: 7vh;
+  }
+}
+
+@media (max-height: 725px) {
+  .keyboard {
+    margin-top: 4vh;
+  }
+}
+
+@media (max-width: 300px) {
+  .key {
+    padding: 1.3vh .83vh;
+  }
+  .keyboard {
+    margin-top: 7vh;
+  }
+  .left,
+  .right {
+  display: flex;
+  gap: 17px;
+  transform: scale(.7);
+  }
+  .header .text {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 470px) {
+  .header .text {
+    font-size: 30px;
+  }
+}
