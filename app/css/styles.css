@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #121213;
+  --secondary: #3a3a3c;
+  --tertiary: #818384;
+}
+
+body {
+  background-color: var(--background);
+}
+
+@keyframes type {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(180deg);
+  }
+  50% {
+    transform: rotateX(-180deg);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vh 4vh;
+  border-bottom: 2px solid var(--secondary);
+  border-top: 2px solid var(--secondary);
+}
+
+.header .text {
+  color: white;
+  font-size: 40px;
+}
+
+.header button {
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.header .question {
+  font-size: 22px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.left,
+.right {
+  display: flex;
+  gap: 20px;
+  transform: scale(1.2);
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.square {
+  display: flex;
+  width: 7vh;
+  height: 7vh;
+  border: 2px solid var(--secondary);
+  border-radius: 1px;
+  justify-content: center;
+  align-items: center;
+}
+
+.square-text {
+  color: white;
+  font-size: 2.4em;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.view {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
+  padding-top: 9vh;
+}
+
+.keyboard {
+  margin-top: 9vh;
+  text-align: center;
+}
+
+.key {
+  background-color: var(--tertiary);
+  color: white;
+  padding: 2.3vh 2vh;
+  border-radius: 5px;
+  font-size: 0.9em;
+  margin: 3px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.typed {
+  animation: type 0.1s;
+}
+
+.flip {
+  animation: flip 0.7s
+}
+
+.green {
+    background-color: #538d4e;
+    border-color:#538d4e;
+}

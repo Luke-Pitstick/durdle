@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Durdle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="\css\styles.css">
+    <link rel="stylesheet" href="\css\all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <div class="left">
+                <button type="button" class="menu"><i class="gg-menu"></i></button>
+                <button type="button" class="question">?</button>
+            </div>
+            <h1 class="text">Durdle</h1>
+            <div class="right">
+                <button type="button"><i class="gg-insights"></i></button>
+                <button type="button"><i class="gg-more"></i></button>
+            </div>
+        </div>
+        <div class="game-container">
+            <div class="view" id="view">
+    
+            </div>
+            <div class="keyboard" id="keyboard">
+                <div id="first"></div>
+                <div id="second"></div>
+                <div id="third"></div>
+            </div>
+        </div>
+        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.min.js"></script>
+    <script src="\app.js"></script>
+</body>
+</html>
